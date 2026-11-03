@@ -2,7 +2,9 @@ FROM golang:1.27.3-alpine AS builder
 
 RUN apk add git bash
 
-ENV GO111MODULE=on
+# Copy and download dependency using go mod.
+COPY go.mod go.sum ./
+RUN go mod download
 
 # Add our code
 COPY ./ /src
