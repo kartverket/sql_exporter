@@ -1,6 +1,6 @@
 module github.com/justwatchcom/sql_exporter
 
-go 1.24
+go 1.27.3
 
 require (
 	cloud.google.com/go/cloudsqlconn v1.12.1
