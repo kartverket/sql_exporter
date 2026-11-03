@@ -6,7 +6,7 @@ import (
 
 	"cloud.google.com/go/cloudsqlconn"
 	"cloud.google.com/go/cloudsqlconn/mysql/mysql"
-	"cloud.google.com/go/cloudsqlconn/postgres/pgxv4"
+	"cloud.google.com/go/cloudsqlconn/postgres/pgxv5"
 	"github.com/go-kit/log"
 	"github.com/go-kit/log/level"
 	"github.com/prometheus/client_golang/prometheus"
@@ -72,7 +72,7 @@ func NewExporter(logger log.Logger, configFile string) (*Exporter, error) {
 		// Register all possible cloudsql drivers
 
 		// drop cleanup as we don't really know when to end this
-		_, err = pgxv4.RegisterDriver(CLOUDSQL_POSTGRES, cloudsqlconnection)
+		_, err = pgxv5.RegisterDriver(CLOUDSQL_POSTGRES, cloudsqlconnection)
 		if err != nil {
 			return nil, fmt.Errorf("could not register cloudsql-postgres driver: %w", err)
 		}

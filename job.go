@@ -29,6 +29,7 @@ import (
 	_ "github.com/vertica/vertica-sql-go" // register the Vertica driver
 	sqladmin "google.golang.org/api/sqladmin/v1beta4"
 
+	//lint:ignore SA1019 Keep RDS on its existing SDK until discovery and auth migrate together.
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/rds/rdsutils"
 )
